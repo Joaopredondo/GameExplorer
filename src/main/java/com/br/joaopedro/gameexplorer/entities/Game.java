@@ -1,6 +1,11 @@
 package com.br.joaopedro.gameexplorer.entities;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 import java.util.Objects;
 
@@ -16,20 +21,22 @@ public class Game {
     private String genre;
     private String platforms;
     private Double score;
-    private String imageUrl;
+    private String imgUrl;
+    @Column(columnDefinition = "TEXT")
     private String shortDescription;
+    @Column(columnDefinition = "TEXT")
     private String longDescription;
 
     public Game(){}
 
-    public Game(long id, String title, Integer year, String genre, String platforms, Double score, String imageUrl, String shortDescription, String longDescription) {
+    public Game(long id, String title, Integer year, String genre, String platforms, Double score, String imgUrl, String shortDescription, String longDescription) {
         this.id = id;
         this.title = title;
         this.year = year;
         this.genre = genre;
         this.platforms = platforms;
         this.score = score;
-        this.imageUrl = imageUrl;
+        this.imgUrl = imgUrl;
         this.shortDescription = shortDescription;
         this.longDescription = longDescription;
     }
@@ -83,11 +90,11 @@ public class Game {
     }
 
     public String getImageUrl() {
-        return imageUrl;
+        return imgUrl;
     }
 
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+    public void setImageUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
     }
 
     public String getShortDescription() {
