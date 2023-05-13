@@ -3,6 +3,7 @@ package com.br.joaopedro.gameexplorer.services;
 import com.br.joaopedro.gameexplorer.dto.GameDTO;
 import com.br.joaopedro.gameexplorer.dto.GameShortInfoDTO;
 import com.br.joaopedro.gameexplorer.entities.Game;
+import com.br.joaopedro.gameexplorer.projections.GameMinProjection;
 import com.br.joaopedro.gameexplorer.repositories.GameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,6 +27,12 @@ public class GameService {
     @Transactional(readOnly = true)
     public List<GameShortInfoDTO> findAll() {
         List<Game> result = gameRepository.findAll();
+        return result.stream().map(x -> new GameShortInfoDTO(x)).toList();
+    }
+
+    @Transactional(readOnly = true)
+    public List<GameShortInfoDTO> findByList(Long listId) {
+        List<GameMinProjection> result = gameRepository.searchByList(listId);
         return result.stream().map(x -> new GameShortInfoDTO(x)).toList();
     }
 

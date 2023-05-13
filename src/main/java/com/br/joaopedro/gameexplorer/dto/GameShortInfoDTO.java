@@ -1,6 +1,7 @@
 package com.br.joaopedro.gameexplorer.dto;
 
 import com.br.joaopedro.gameexplorer.entities.Game;
+import com.br.joaopedro.gameexplorer.projections.GameMinProjection;
 
 public class GameShortInfoDTO {
 
@@ -16,8 +17,16 @@ public class GameShortInfoDTO {
                 id = entity.getId();  //foi retirado o this pois não se tem mais paramentros com o mesmo nome das variaveis, pois esta trazendo direto da classe Game.
                 title = entity.getTitle();
                 year = entity.getYear();
-                imgUrl = entity.getImageUrl();
+                imgUrl = entity.getImgUrl();
                 shortDescription = entity.getShortDescription();
+        }
+
+        public GameShortInfoDTO(GameMinProjection projection) {
+                id = projection.getId();  //foi retirado o this pois não se tem mais paramentros com o mesmo nome das variaveis, pois esta trazendo direto da classe Game.
+                title = projection.getTitle();
+                year = projection.getYear();
+                imgUrl = projection.getImgUrl();
+                shortDescription = projection.getShortDescription();
         }
 
         public long getId() {
