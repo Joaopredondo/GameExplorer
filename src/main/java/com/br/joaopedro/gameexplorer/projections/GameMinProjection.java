@@ -4,7 +4,7 @@ package com.br.joaopedro.gameexplorer.projections;
 public interface GameMinProjection {
     Long getId();
     String getTitle();
-    Integer getYear();
+    Integer getGameYear();
     String getImgUrl();
     String getShortDescription();
     Integer getPosition();

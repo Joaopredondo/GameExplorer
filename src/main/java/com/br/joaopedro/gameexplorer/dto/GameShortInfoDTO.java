@@ -24,7 +24,7 @@ public class GameShortInfoDTO {
         public GameShortInfoDTO(GameMinProjection projection) {
                 id = projection.getId();  //foi retirado o this pois não se tem mais paramentros com o mesmo nome das variaveis, pois esta trazendo direto da classe Game.
                 title = projection.getTitle();
-                year = projection.getYear();
+                year = projection.getGameYear();
                 imgUrl = projection.getImgUrl();
                 shortDescription = projection.getShortDescription();
         }
@@ -32,6 +32,7 @@ public class GameShortInfoDTO {
         public long getId() {
                 return id;
         }
+
 
         public String getTitle() {
                 return title;
