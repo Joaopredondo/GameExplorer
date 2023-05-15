@@ -1,6 +1,6 @@
 # GameExplorer
 
-- Projeto criando utilizando Java, onde a partir de endpoints é possivel listar jogos com suas respectivas informações como nome, foto da capa, ano, data, plataforma, descricao longa e curta e até mudar a posição dos mesmos na listagem.
+- Projeto criando utilizando Java, onde a partir de endpoints é possivel listar jogos com suas respectivas informações como nome, foto da capa, ano, data, plataforma, descrição longa e curta e até mudar a posição dos jogos na listagem.
 
 ## Tecnologias utilizadas
 
@@ -12,6 +12,7 @@
 - Docker
 - Maven
 - Git
+- Railway (Para hospedar o projeto na nuvem)
 
 ## Conceitos utilizados para densenvolvimento
 
@@ -41,3 +42,6 @@
 - GET: http://localhost:8080/games/6 (Traz um jogo com um id específico) 
 - GET: http://localhost:8080/lists (Mostra todas as categorias)
 - POST: http://localhost:8080/lists/2/replacement -> Body: {"sourceIndex": 1 -> (Valor atual), "destinationIndex": 3 -> (Valor de destino)} (Altera a posição de determinado jogo na lista)
+
+## Link do projeto na nuvem
+- https://gameexplorer-production.up.railway.app/games
