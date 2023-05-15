@@ -2,13 +2,11 @@ package com.br.joaopedro.gameexplorer.controller;
 
 import com.br.joaopedro.gameexplorer.dto.GameListDTO;
 import com.br.joaopedro.gameexplorer.dto.GameShortInfoDTO;
+import com.br.joaopedro.gameexplorer.dto.ListReplacementDTO;
 import com.br.joaopedro.gameexplorer.services.GameListService;
 import com.br.joaopedro.gameexplorer.services.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -33,4 +31,8 @@ public class GameListController {
         return result;
     }
 
+    @PostMapping(value="/{listId}/replacement")
+    public void move(@PathVariable Long listId, @RequestBody ListReplacementDTO body) {
+        gameListService.move(listId, body.getSourceIndex(), body.getDestinationIndex());
+    }
 }
